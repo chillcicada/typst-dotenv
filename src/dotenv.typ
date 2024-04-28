@@ -1,16 +1,15 @@
-// TODO: add line regex that remove comments
 #let env_load(path) = {
   let arr = read(path)
-    .split(regex("\r?\n"))
+    .split(regex("#.*\r?\n|\r?\n"))
     .filter(it => it != "")
     .map((line) => {
       let parts = line.split("=")
       let key = parts.at(0)
       if (key != "") {
         if (parts.len() > 1) {
-          (key, parts.at(1))
+          (key.trim(), parts.at(1).trim())
         } else {
-          (key, "")
+          (key.trim(), "")
         }
       }
     })
