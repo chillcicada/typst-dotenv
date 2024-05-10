@@ -1,17 +1,17 @@
 # Dotenv
 
-WIP now..
-
 Load environment variables from a .env file.
 
 ## Example
 
+![Example](./example.svg)
+
 ```typ
-#import "@preview/dotenv:0.0.1": env, env_load
+#import "@preview/dotenv.typ": env_load
 
-#env // default read ".env" in root directory
+#let env = env_load("/.env")
 
-#let custom_env = env_load(".env")
+#let env_example = env_load("/example/.env.example")
 ```
 
 with the following .env file:
