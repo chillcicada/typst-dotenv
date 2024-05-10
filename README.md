@@ -4,7 +4,7 @@ Load environment variables from a .env file.
 
 ## Example
 
-![Example](./example.svg)
+![Example](./example.png)
 
 ```typ
 #import "@preview/dotenv.typ": env_load
