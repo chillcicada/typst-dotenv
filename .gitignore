@@ -4,3 +4,8 @@
 .temp
 
 *.pdf
+
+
+# Added by cargo
+
+/target
