@@ -1,25 +1,15 @@
-# Dotenv
+# typst-dotenv
 
-Load environment variables from a .env file.
+Parse a .env content.
+
+## Usage
+
+```typ
+#import "@preview/typst-dotenv.typ:0.1.1": parse_dotenv
+
+#let env = parse_dotenv(read(".env"))
+```
 
 ## Example
 
 ![Example](./example.png)
-
-```typ
-#import "@preview/dotenv.typ": env_load
-
-#let env = env_load("/.env")
-
-#let env_example = env_load("/example/.env.example")
-```
-
-with the following .env file:
-
-```ini
-# .env
-FOO_IN_ROOT=bar
-
-# .env.example
-FOO_IN_EXAMPLE=baz
-```

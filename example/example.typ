@@ -1,43 +1,50 @@
-#import "../dotenv.typ": *
+#set page(width: auto, height: auto)
 
-#let env = env_load("/.env")
+#import "../lib.typ": parse_dotenv
 
-#let env_example = env_load("/example/.env.example")
+```txt
+#import "../lib.typ": parse_dotenv
 
-```typ
-#import "@preview/dotenv.typ": env_load
-
-#let env = env_load("/.env")
-
-#let env_example = env_load("/example/.env.example")
+#parse_dotenv("FOO = bar # this is a comment")
 ```
 
-Load the environment variable `FOO_IN_ROOT` from the `.env` file in the root of the project: #env.FOO_IN_ROOT
+It will be parsed as:
 
-Below is the content of the `/.env` file:
+#parse_dotenv("FOO = bar # this is a comment")
 
-```ini
-# /.env
-
-# This is a comment
-FOO_IN_ROOT= bar # this is also a comment
+````txt
+#let env_code = ```ini
+# this is a comment
+FOO = bar # this is also a comment
 ```
 
-It will be loaded as:
+#let env = parse_dotenv(env_code)
+````
+
+#let env_code = ```ini
+# this is a comment
+FOO = bar # this is also a comment
+```
+
+#let env = parse_dotenv(env_code)
+
+The `env` will be:
 
 #env
 
-Load the environment variable `FOO_IN_EXAMPLE` from the `.env.example` file of the project: #env_example.FOO_IN_EXAMPLE
+Or you can read the content from a .env file:
 
-Below is the content of the `.env.example` file:
+```txt
+// The path is relative to the current file
+#let env_raw = read("/.env")
 
-```ini
-# .env.example
-
-# This is a comment
-FOO_IN_EXAMPLE=baz # this is also a comment
+#let env = parse_dotenv(env_raw)
 ```
 
-It will be loaded as:
+The `env` will be:
 
-#env_example
+#let env_raw = read("/.env")
+
+#let env = parse_dotenv(env_raw)
+
+#env
