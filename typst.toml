@@ -1,5 +1,5 @@
 [package]
-name = "typst-dotenv"
+name = "tenv"
 version = "0.1.1"
 entrypoint = "lib.typ"
 authors = ["chillcicada"]
