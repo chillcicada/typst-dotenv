@@ -1,7 +1,7 @@
 #let parse_dotenv(ctx) = {
-  if type(ctx) == "content" {
+  if type(ctx) == content {
     ctx = ctx.text
-  } else if type(ctx) != "string" {
+  } else if type(ctx) != str {
     return ctx
   }
 
