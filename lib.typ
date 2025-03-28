@@ -5,17 +5,21 @@
     return ctx
   }
 
-  let arr = ctx.split(regex("#.*\r?\n?|\r?\n")).filter(it => it.trim() != "").map(line => {
-    let parts = line.split("=")
-    let key = parts.at(0).trim()
-    if (key != "") {
-      if (parts.len() > 1) {
-        (key, parts.at(1).trim())
-      } else {
-        (key, "")
+  let arr = ctx
+    .split(regex("#.*\r?\n?|\r?\n"))
+    .filter(it => it.trim() != "")
+    .map(line => {
+      let parts = line.split("=")
+      let key = parts.at(0).trim()
+      if (key != "") {
+        if (parts.len() > 1) {
+          (key, parts.at(1).trim())
+        } else {
+          (key, "")
+        }
       }
-    }
-  }).dedup()
+    })
+    .dedup()
 
   let obj = (:)
 
