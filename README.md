@@ -1,3 +1,7 @@
+This package has been deprecated in favour of [dovenv](https://typst.app/universe/package/dovenv), which has full support for dotenv file.
+
+---
+
 # tenv
 
 Parse a .env content.
